@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jester | Creative Portfolio</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="./assets/TI1.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/TI2.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/TI3.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -63,6 +66,34 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
+        .hover-text {
+            position: relative;
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        .hover-text:hover {
+            transform: scale(1.1);
+            color: crimson;
+        }
+        .hover-text::after {
+            content: attr(data-hover-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: crimson;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        .hover-text:hover::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .hover-text:hover .text-content {
+            opacity: 0;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
@@ -113,7 +144,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
             </div>
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">Welcome To <span class="text-secondary">JesteR's</span> Archieve </h1>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Welcome To <span class="text-secondary hover-text" data-hover-text="Roy's"><span class="text-content">JesteR's</span></span> Archieve </h1>
             <p class="text-xl text-gray-600 max-w-2xl mx-auto">Here's all what i've been doing besides wasting my life.</p>
         </div>
     </section>
@@ -148,7 +179,7 @@
             
             <!-- Medium Card 2 -->
             <div class="rounded-xl overflow-hidden relative group" data-aos="fade-up" data-aos-delay="150">
-                <img src="https://source.unsplash.com/random/600x600/?app" alt="Mobile App" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <img src="./assets/B3.png" alt="Mobile App" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-4">
                     <h3 class="text-white text-xl font-bold">Fitness App</h3>
                     <p class="text-white/80 text-sm">Mobile UI Design</p>
@@ -165,7 +196,7 @@
             
             <!-- Small Card 2 -->
             <div class="rounded-xl overflow-hidden relative group" data-aos="fade-up" data-aos-delay="100">
-                <img src="https://source.unsplash.com/random/400x400/?dashboard" alt="Dashboard" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <img src="./assets/B5.png" alt="Dashboard" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-3">
                     <h3 class="text-white text-lg font-bold">Analytics</h3>
                 </div>
@@ -173,7 +204,7 @@
             
             <!-- Medium Card 3 -->
             <div class="md:col-span-2 rounded-xl overflow-hidden relative group" data-aos="fade-up" data-aos-delay="200">
-                <img src="https://source.unsplash.com/random/1200x600/?packaging" alt="Packaging" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <img src="./assets/B6.png" alt="Packaging" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-4">
                     <h3 class="text-white text-xl font-bold">Product Packaging</h3>
                     <p class="text-white/80 text-sm">Brand Identity</p>
@@ -191,9 +222,9 @@
         </div>
         <h2 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">Graphic Design Works</h2>
         <div class="carousel-wrapper relative overflow-hidden" style="height: 36rem;">
-            <div class="carousel-container absolute inset-0" style="width: 300%">
+            <div class="carousel-container absolute inset-0" style="width: 600%">
                 <div class="carousel-track flex transition-transform duration-500">
-                    <!-- Original Items -->
+                    <!-- First Set of Items -->
                     <div class="carousel-item flex-shrink-0 w-64 mx-3">
                         <div class="thumbnail rounded-xl overflow-hidden shadow-lg bg-white h-[36rem] transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,255,127,0.5)]">
                             <img src="./assets/D1.png" alt="Poster Design" class="w-full h-full object-cover" loading="lazy">
@@ -227,6 +258,43 @@
                     <div class="carousel-item flex-shrink-0 w-64 mx-3">
                         <div class="thumbnail rounded-xl overflow-hidden shadow-lg bg-white h-[36rem] transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,255,127,0.5)]">
                             <img src="./assets/D6.png" alt="Social Media" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- Second Set of Items -->
+                    <div class="carousel-item flex-shrink-0 w-64 mx-3">
+                        <div class="thumbnail rounded-xl overflow-hidden shadow-lg bg-white h-[36rem] transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,255,127,0.5)]">
+                            <img src="./assets/D7.jpg" alt="Poster Design 2" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item flex-shrink-0 w-64 mx-3">
+                        <div class="thumbnail rounded-xl overflow-hidden shadow-lg bg-white h-[36rem] transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,255,127,0.5)]">
+                            <img src="./assets/D8.png" alt="Branding 2" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item flex-shrink-0 w-64 mx-3">
+                        <div class="thumbnail rounded-xl overflow-hidden shadow-lg bg-white h-[36rem] transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,255,127,0.5)]">
+                            <img src="./assets/D9.jpg" alt="Magazine 2" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item flex-shrink-0 w-64 mx-3">
+                        <div class="thumbnail rounded-xl overflow-hidden shadow-lg bg-white h-[36rem] transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,255,127,0.5)]">
+                            <img src="./assets/D10.jpg" alt="Packaging 2" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item flex-shrink-0 w-64 mx-3">
+                        <div class="thumbnail rounded-xl overflow-hidden shadow-lg bg-white h-[36rem] transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,255,127,0.5)]">
+                            <img src="./assets/D11.png" alt="Book Cover 2" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item flex-shrink-0 w-64 mx-3">
+                        <div class="thumbnail rounded-xl overflow-hidden shadow-lg bg-white h-[36rem] transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,255,127,0.5)]">
+                            <img src="./assets/D12.png" alt="Social Media 2" class="w-full h-full object-cover" loading="lazy">
                         </div>
                     </div>
                 </div>
