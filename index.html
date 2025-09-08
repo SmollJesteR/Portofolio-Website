@@ -100,29 +100,52 @@
     <!-- Navigation -->
     <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo Section -->
+                <div class="flex items-center w-1/4">
                     <span class="text-xl font-bold text-primary flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 mr-2">
-                            <path d="M5.507 4.048A3 3 0 017.785 3h8.43a3 3 0 012.278 1.048l1.722 2.008A4.533 4.533 0 0019.5 6h-15c-.243 0-.482.02-.715.056l1.722-2.008z" />
-                            <path fill-rule="evenodd" d="M1.5 10.5a3 3 0 013-3h15a3 3 0 110 6h-15a3 3 0 01-3-3zm15 .75a.75.75 0 100-1.5.75.75 0 000 1.5zm-8.25-.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" clip-rule="evenodd" />
-                            <path d="M2.25 15a3 3 0 003 3h13.5a3 3 0 003-3v-3a3 3 0 00-3-3h-2.025a4.5 4.5 0 01-1.318 1.732L14.5 15.5h-5l-.707-.768A4.5 4.5 0 017.025 12H5.25a3 3 0 00-3 3v3z" />
-                        </svg>
-                        SmollJesteR
+                        <img src="assets/SJR.svg" alt="SmollJesteR Logo" class="w-10 h-10">
                     </span>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
+                <!-- Navigation Menu - Centered -->
+                <div class="hidden md:flex justify-center items-center space-x-8 w-2/4">
                     <a href="#portfolio" class="text-gray-700 hover:text-secondary transition">Portfolio</a>
+                    <a href="#design-works" class="text-gray-700 hover:text-secondary transition">Design</a>
                     <a href="#github" class="text-gray-700 hover:text-secondary transition">GitHub</a>
                     <a href="#about" class="text-gray-700 hover:text-secondary transition">About</a>
-                    <a href="#contact" class="text-gray-700 hover:text-secondary transition">Contact</a>
                 </div>
+                <!-- Time and Location - Right -->
+                <div class="hidden md:flex justify-end items-center w-1/4 text-gray-600">
+                    <div class="flex items-center space-x-2 text-base">
+                        <div id="current-time" class="text-lg font-medium"></div>
+                        <div class="text-lg font-medium text-gray-400">|</div>
+                        <div id="current-location" class="text-lg">Jakarta, ID</div>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button -->
                 <div class="flex items-center md:hidden">
                     <button id="mobile-menu-button" class="text-gray-700">
                         <i data-feather="menu"></i>
                     </button>
                 </div>
             </div>
+            
+            <script>
+                function updateTime() {
+                    const timeElement = document.getElementById('current-time');
+                    const now = new Date();
+                    const timeString = now.toLocaleTimeString('id-ID', {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: false
+                    });
+                    timeElement.textContent = timeString;
+                }
+                
+                // Update time immediately and then every second
+                updateTime();
+                setInterval(updateTime, 1000);
+            </script>
         </div>
     </nav>
 
@@ -130,9 +153,9 @@
     <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-40 pt-20 px-4">
         <div class="flex flex-col space-y-6 text-center">
             <a href="#portfolio" class="text-xl text-gray-700 hover:text-indigo-600 transition">Portfolio</a>
+            <a href="#design-works" class="text-xl text-gray-700 hover:text-indigo-600 transition">Design</a>
             <a href="#github" class="text-xl text-gray-700 hover:text-indigo-600 transition">GitHub</a>
             <a href="#about" class="text-xl text-gray-700 hover:text-indigo-600 transition">About</a>
-            <a href="#contact" class="text-xl text-gray-700 hover:text-indigo-600 transition">Contact</a>
         </div>
     </div>
 
@@ -181,8 +204,8 @@
             <div class="rounded-xl overflow-hidden relative group" data-aos="fade-up" data-aos-delay="150">
                 <img src="./assets/B3.png" alt="Mobile App" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-4">
-                    <h3 class="text-white text-xl font-bold">Fitness App</h3>
-                    <p class="text-white/80 text-sm">Mobile UI Design</p>
+                    <h3 class="text-white text-xl font-bold">Merchandise Design</h3>
+                    <p class="text-white/80 text-sm">PPLK 2024 Bracelet Design</p>
                 </div>
             </div>
             
@@ -190,7 +213,7 @@
             <div class="rounded-xl overflow-hidden relative group" data-aos="fade-up">
                 <img src="./assets/B4.png" alt="Illustration" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-3">
-                    <h3 class="text-white text-lg font-bold">Digital Art</h3>
+                    <h3 class="text-white text-lg font-bold">Concept Art</h3>
                 </div>
             </div>
             
@@ -198,7 +221,7 @@
             <div class="rounded-xl overflow-hidden relative group" data-aos="fade-up" data-aos-delay="100">
                 <img src="./assets/B5.png" alt="Dashboard" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-3">
-                    <h3 class="text-white text-lg font-bold">Analytics</h3>
+                    <h3 class="text-white text-lg font-bold">Tumbler Design</h3>
                 </div>
             </div>
             
@@ -206,15 +229,15 @@
             <div class="md:col-span-2 rounded-xl overflow-hidden relative group" data-aos="fade-up" data-aos-delay="200">
                 <img src="./assets/B6.png" alt="Packaging" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-4">
-                    <h3 class="text-white text-xl font-bold">Product Packaging</h3>
-                    <p class="text-white/80 text-sm">Brand Identity</p>
+                    <h3 class="text-white text-xl font-bold">Web UI/UX</h3>
+                    <p class="text-white/80 text-sm">Official PPLK 2025 Web Design</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Graphic Design Carousel -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="design-works" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div class="flex justify-center mb-4" data-aos="fade-up">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
@@ -545,19 +568,19 @@
                     </svg>
                     Jester
                 </span>
-                <p class="text-gray-600 mt-2">© 2023 All rights reserved</p>
+                <p class="text-gray-600 mt-2">© 2025 All rights reserved</p>
             </div>
             <div class="flex space-x-6">
-                <a href="#" class="text-gray-600 hover:text-blue-400 transition">
-                    <i data-feather="twitter"></i>
+                <a href="https://id.pinterest.com/SmollJesteR/?actingBusinessId=861172897404753346" class="text-gray-600 hover:text-red-600 transition" target="_blank" rel="noopener noreferrer">
+                    <img src="./assets/icons8-pinterest.svg" alt="Pinterest" class="w-6 h-6">
                 </a>
                 <a href="#" class="text-gray-600 hover:text-pink-600 transition">
                     <i data-feather="instagram"></i>
                 </a>
-                <a href="#" class="text-gray-600 hover:text-blue-700 transition">
+                <a href="https://www.linkedin.com/in/mroyhaf-9781a7311/" class="text-gray-600 hover:text-blue-700 transition" target="_blank" rel="noopener noreferrer">
                     <i data-feather="linkedin"></i>
                 </a>
-                <a href="#" class="text-gray-600 hover:text-gray-900 transition">
+                <a href="https://github.com/SmollJesteR" class="text-gray-600 hover:text-gray-900 transition" target="_blank" rel="noopener noreferrer">
                     <i data-feather="github"></i>
                 </a>
                 <a href="#" class="text-gray-600 hover:text-red-500 transition">
